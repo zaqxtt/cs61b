@@ -12,8 +12,8 @@ public class IntListExercises {
         IntList head = lst;
         head.first += c;
         while (head.rest != null) {
+            head.rest.first += c;
             head = head.rest;
-            head.first += c;
         }
     }
 
