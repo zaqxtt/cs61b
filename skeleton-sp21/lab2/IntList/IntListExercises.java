@@ -3,22 +3,21 @@ package IntList;
 public class IntListExercises {
 
     /**
-     * Part A: mutative method that adds a constant C to each
+     * Part A: (Buggy) mutative method that adds a constant C to each
      * element of an IntList
      *
      * @param lst IntList from Lecture
      */
     public static void addConstant(IntList lst, int c) {
         IntList head = lst;
-        head.first += c;
         while (head.rest != null) {
-            head = head.rest;
             head.first += c;
+            head = head.rest;
         }
     }
 
     /**
-     * Part B: method that sets node.first to zero if
+     * Part B: Buggy method that sets node.first to zero if
      * the max value in the list starting at node has the same
      * first and last digit, for every node in L
      *
@@ -34,9 +33,7 @@ public class IntListExercises {
         }
     }
 
-    /**
-     * Returns the max value in the IntList starting at L.
-     */
+    /** Returns the max value in the IntList starting at L. */
     public static int max(IntList L) {
         int max = L.first;
         IntList p = L.rest;
@@ -49,13 +46,12 @@ public class IntListExercises {
         return max;
     }
 
-    /**
-     * Returns true if the last digit of x is equal to
-     * the first digit of x.
+    /** Returns true if the last digit of x is equal to
+     *  the first digit of x.
      */
     public static boolean firstDigitEqualsLastDigit(int x) {
         int lastDigit = x % 10;
-        while (x >= 10) {
+        while (x > 10) {
             x = x / 10;
         }
         int firstDigit = x % 10;
@@ -63,7 +59,7 @@ public class IntListExercises {
     }
 
     /**
-     * Part C: mutative method that squares each prime
+     * Part C: (Buggy) mutative method that squares each prime
      * element of the IntList.
      *
      * @param lst IntList from Lecture
@@ -81,6 +77,6 @@ public class IntListExercises {
             lst.first *= lst.first;
         }
 
-        return squarePrimes(lst.rest) || currElemIsPrime;
+        return currElemIsPrime || squarePrimes(lst.rest);
     }
 }
