@@ -1,5 +1,6 @@
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 /** Tests the AList class.
  *  @author Josh Hug
@@ -70,7 +71,4 @@ public class AListTest {
         }
     }
 
-    public static void main(String[] args) {
-        jh61b.junit.TestRunner.runTests("all", AListTest.class);
-    }
-} 
+}
